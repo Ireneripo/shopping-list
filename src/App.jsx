@@ -50,17 +50,22 @@ function App() {
             Add
           </button>
         </form>
-        {itemList.map((item) => (
-          <div
-            key={item.id}
-            className="flex justify-between my-3 max-w-72 mx-auto"
-          >
-            <p>{item.text}</p>
-            <button className="text-red-600 font-extrabold text-lg cursor-pointer" onClick={()=> handleRemoveItem(item.id)}>
-              X
-            </button>
-          </div>
-        ))}
+        {<ul className="space-y-3">
+          {itemList.map((item) => (
+              <li
+                  key={item.id}
+                  className="flex justify-between max-w-72 mx-auto"
+              >
+                <span>{item.text}</span>
+                <button
+                    onClick={() => handleRemoveItem(item.id)}
+                    className="text-red-600 font-extrabold text-lg cursor-pointer"
+                >
+                  X
+                </button>
+              </li>
+          ))}
+        </ul>}
       </div>
     </>
   );
